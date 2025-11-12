@@ -1,15 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/www.png">
-    <script src="https://cdn.tailwindcss.com"></script>
     <title>BuzzCut</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="/www.png">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1a202c',
+                        secondary: '#2d3748',
+                        accent: '#d4af37',
+                        red: '#dc2626'
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .animate-count {
+            transition: all 2s ease-out;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            transform: translateX(-50px);
+            opacity: 0;
+            transition: transform 0.8s ease, opacity 0.8s ease;
+        }
+
+        .slide-in-left.visible {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .slide-in-right {
+            transform: translateX(50px);
+            opacity: 0;
+            transition: transform 0.8s ease, opacity 0.8s ease;
+        }
+
+        .slide-in-right.visible {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .carousel-item {
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+    </style>
 </head>
-<body>
-    <section>
-        
+
+<body class="bg-gray-50 text-gray-800">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <img class="md:h-[8vh]" src="/images/buz.png" alt="">
+            </div>
+            <nav class="hidden md:flex ">
+                <div class="mt-3 space-x-8 mr-8">
+                    <a href="#" class="text-primary hover:text-accent transition">Home</a>
+                    <a href="#about" class="text-primary hover:text-accent transition">About Us</a>
+                    <a href="#services" class="text-primary hover:text-accent transition">Services</a>
+                    <a href="#pages" class="text-primary hover:text-accent transition">Pages</a>
+                    <a href="#contact" class="text-primary hover:text-accent transition">Contact Us</a>
+                </div>
+                <button
+                    class="bg-red text-white font-semibold py-2 px-4 rounded-lg hover:bg-green-500 transition transform">
+                    Make Appointment
+                </button>
+            </nav>
+            <button class="md:hidden text-primary">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-primary to-secondary text-white relative mb-10 md:h-[85vh]">
+        <div>
+            <img class="absolute container md:h-[85vh] w-full" src="/images/Rectangle 79.png" alt="">
+        </div>
+        <div class="items-center justify-center px-8 py-40">
+            <h2 class="text-4xl md:text-6xl font-semibold mb-6 slide-in-left">Where Style</h2>
+            <h2 class="text-red text-4xl md:text-6xl font-semibold slide-in-left">Meets Craftmanship</h2>
+            <p class="border-t md:w-[20vw] mt-5 mb-5"></p>
+            <p class="text-xl md:text-2xl mb-8 slide-in-right">Create & Renovate Hair Style Trends</p>
+            <div class="flex">
+                <button
+                    class="bg-red text-white font-bold py-3 px-8 rounded-lg hover:bg-yellow-500 transition transform hover:scale-105">
+                    Request Quote
+                </button>
+                <!-- play icon -->
+            </div>
+        </div>
     </section>
+
+    <script>
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function () {
+            // Fade in elements on scroll
+            const fadeElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
+
+            const fadeInOnScroll = function () {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('visible');
+                    }
+                });
+            };
+
+            // Initial check
+            fadeInOnScroll();
+
+            // Check on scroll
+            window.addEventListener('scroll', fadeInOnScroll);
+
+            // Counter animation
+            const counters = document.querySelectorAll('.animate-count');
+            const speed = 200;
+
+            const animateCounters = function () {
+                counters.forEach(counter => {
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    const count = parseInt(counter.innerText);
+                    const increment = Math.ceil(target / speed);
+
+                    if (count < target) {
+                        counter.innerText = count + increment;
+                        setTimeout(animateCounters, 10);
+                    } else {
+                        counter.innerText = target;
+                    }
+                });
+            };
+
+            // Set data targets and initialize counters to 0
+            document.getElementById('barberCount').setAttribute('data-target', '25');
+            document.getElementById('barberCount').innerText = '0';
+
+            document.getElementById('storiesCount').setAttribute('data-target', '500');
+            document.getElementById('storiesCount').innerText = '0';
+
+            document.getElementById('experienceCount').setAttribute('data-target', '15');
+            document.getElementById('experienceCount').innerText = '0';
+
+            document.getElementById('customersCount').setAttribute('data-target', '76');
+            document.getElementById('customersCount').innerText = '0';
+
+            // Start counter animation when stats section is in view
+            const statsSection = document.querySelector('.bg-primary');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            observer.observe(statsSection);
+
+            // Carousel functionality
+            const carousel = document.getElementById('carousel');
+            const carouselItems = document.querySelectorAll('.carousel-item');
+            const prevButton = document.querySelector('.carousel-prev');
+            const nextButton = document.querySelector('.carousel-next');
+            let currentIndex = 0;
+
+            function updateCarousel() {
+                carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+
+            prevButton.addEventListener('click', () => {
+                currentIndex = (currentIndex > 0) ? currentIndex - 1 : carouselItems.length - 1;
+                updateCarousel();
+            });
+
+            nextButton.addEventListener('click', () => {
+                currentIndex = (currentIndex < carouselItems.length - 1) ? currentIndex + 1 : 0;
+                updateCarousel();
+            });
+
+            // Auto-advance carousel
+            setInterval(() => {
+                currentIndex = (currentIndex < carouselItems.length - 1) ? currentIndex + 1 : 0;
+                updateCarousel();
+            }, 5000);
+        });
+    </script>
 </body>
+
 </html>
