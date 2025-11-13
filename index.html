@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 
 <head>
     <meta charset="UTF-8">
@@ -12,6 +12,7 @@
     <link rel="icon" href="/www.png">
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
@@ -31,6 +32,7 @@
         body {
             font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
+            /* background-color: #0f0f0f; */
         }
 
         .animate-count {
@@ -76,7 +78,7 @@
     </style>
 </head>
 
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-50 dark:bg-[#0f0f0f] text-gray-800 dark:text-white font-sans">
     <!-- Header -->
     <header class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
@@ -129,7 +131,7 @@
     </section>
 
     <!-- Brands Section -->
-    <section class="py-12 bg-gray-100">
+    <section class="py-12">
         <div class="mx-auto px-4">
             <h3 class="text-center mb-3 fade-in text-red">QUALITY COLLABORATING BRANDS</h3>
             <div class="mb-12 flex justify-center">
@@ -179,7 +181,7 @@
                         feeling your absolute best.</p>
                     <div class="space-y-4">
                         <div class="flex items-start">
-                            <img class="mr-5" src="/images/noto-v1_man-pilot.png" alt="">
+                            <img class="mr-5 " src="/images/noto-v1_man-pilot.png" alt="">
                             <div>
                                 <h4 class="font-bold">Expert Craftmanship</h4>
                                 <p class="text-gray-600 md:w-[30vw]">Our barbers are seasoned masters of the trade. We
@@ -254,34 +256,81 @@
             </div>
         </div>
     </section>
-    <footer class="bg-gray-100 py-12 px-6 md:px-12">
-        <div class="max-w-7xl mx-auto">
+
+    <section id="stats" class="flex flex-col md:flex-row items-center justify-between md:px-20 py-16 px-10">
+        <!-- Left Side Image -->
+        <div class="md:w-1/2 flex justify-center mb-10 md:mb-0">
+            <img src="/images/unnamed (3) 1.png" alt="Barber" class="rounded-lg max-w-sm md:max-w-md" />
+        </div>
+
+        <!-- Right Side Content -->
+        <div class="md:w-1/2 space-y-6">
+            <p class="text-red font-semibold uppercase">Our Benefits</p>
+            <h2 class="text-3xl md:text-4xl font-bold">
+                Professional Barbercrop & <br />
+                Hair Studio For Man Only
+            </h2>
+            <p class="text-gray-400 leading-relaxed max-w-md">
+                We provide an unrivaled grooming experience tailored exclusively for men.
+                From the moment you walk in, you'll receive expert, one-on-one service
+                in a relaxing, sophisticated environment.
+            </p>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-2 gap-6 pt-4">
+                <div class="border border-gray-600 p-5 rounded-lg text-center">
+                    <p class="text-4xl font-bold text-white"><span class="count" data-target="25">0</span><span
+                            class="text-red">+</span></p>
+                    <p class="text-gray-300 text-sm mt-2">Professional Barber</p>
+                </div>
+                <div class="border border-gray-600 p-5 rounded-lg text-center">
+                    <p class="text-4xl font-bold text-white"><span class="count" data-target="500">0</span><span
+                            class="text-red">+</span></p>
+                    <p class="text-gray-300 text-sm mt-2">Success Stories</p>
+                </div>
+                <div class="border border-gray-600 p-5 rounded-lg text-center">
+                    <p class="text-4xl font-bold text-white"><span class="count" data-target="15">0</span><span
+                            class="text-red">+</span></p>
+                    <p class="text-gray-300 text-sm mt-2">Years Of Experience</p>
+                </div>
+                <div class="border border-gray-600 p-5 rounded-lg text-center">
+                    <p class="text-4xl font-bold text-white"><span class="count" data-target="76">0</span><span
+                            class="text-red">+</span></p>
+                    <p class="text-gray-300 text-sm mt-2">Happy Customers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-100 py-12 px-10 md:px-20 text-black">
+        <div class="max-w-7xl">
             <!-- Main Footer Content -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
                 <!-- Column 1: Company Info -->
                 <div>
-                    <h3 class="text-xl font-semibold mb-6">Grow Your Online Business and Improve Customer Retention</h3>
+                    <h3 class="text-xl font-semibold mb-6 md:text-left">Grow Your Online Business and Improve Customer
+                        Retention</h3>
 
                     <div class="space-y-4">
                         <!-- Phone -->
                         <div class="flex items-center gap-3">
-                            <div class="bg-orange-500 rounded-full p-2 w-10 h-10 flex items-center justify-center">
+                            <div class="bg-orange-500 rounded-full p-2 w-10 h-10 text-center">
                                 <i class="fas fa-phone text-white"></i>
                             </div>
                             <span class="text-gray-800">+880 1537-570379</span>
                         </div>
 
                         <!-- Address -->
-                        <div class="flex items-start gap-3">
-                            <div class="bg-orange-500 rounded-full p-2 w-10 h-10 flex items-center justify-center">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-orange-500 rounded-full p-2 w-10 h-10 mr-2 text-center">
                                 <i class="fas fa-map-marker-alt text-white"></i>
                             </div>
-                            <span class="text-gray-800">House D/36, Block E, Lalmatia,<br>Dhaka-1207</span>
+                            <span class="text-gray-800 text-left">House D/36, Block E, Lalmatia,Dhaka-1207</span>
                         </div>
 
                         <!-- Get Estimate -->
                         <div class="flex items-center gap-3">
-                            <div class="bg-orange-500 rounded-full p-2 w-10 h-10 flex items-center justify-center">
+                            <div class="bg-orange-500 rounded-full p-2 w-10 h-10 mr-1 text-center">
                                 <i class="fas fa-handshake text-white"></i>
                             </div>
                             <span class="text-orange-500 font-semibold">Get Estimate</span>
@@ -289,7 +338,7 @@
                     </div>
 
                     <!-- Social Icons -->
-                    <div class="flex gap-4 mt-8">
+                    <div class="flex gap-4 mt-8 items-center">
                         <a href="#" class="text-gray-800 hover:text-orange-500 transition">
                             <i class="fab fa-facebook text-2xl"></i>
                         </a>
@@ -312,7 +361,7 @@
                 </div>
 
                 <!-- Column 2: Services -->
-                <div>
+                <div class="text-center">
                     <h4 class="text-lg font-semibold mb-6">Services</h4>
                     <ul class="space-y-3">
                         <li><a href="#" class="text-gray-700 hover:text-orange-500 transition">Web Development</a></li>
@@ -326,7 +375,7 @@
                 </div>
 
                 <!-- Column 3: Product -->
-                <div>
+                <div class="text-center">
                     <h4 class="text-lg font-semibold mb-6">Product</h4>
                     <ul class="space-y-3">
                         <li><a href="#" class="text-gray-700 hover:text-orange-500 transition">Transpiration Tracker</a>
@@ -345,7 +394,7 @@
                 </div>
 
                 <!-- Column 4: Company -->
-                <div>
+                <div class="text-center">
                     <h4 class="text-lg font-semibold mb-6">Company</h4>
                     <ul class="space-y-3">
                         <li><a href="#" class="text-gray-700 hover:text-orange-500 transition">Services</a></li>
@@ -368,7 +417,7 @@
                         <a href="#" class="text-orange-500 hover:underline">Privacy Policy</a>
                     </div>
 
-                    <div class="flex gap-6">
+                    <div class="md:flex gap-6 text-center">
                         <a href="#" class="text-gray-700 hover:text-orange-500 transition">Download Brochure:
                             English</a>
                         <a href="mailto:info@deshit-bd.com"
@@ -378,11 +427,10 @@
             </div>
         </div>
     </footer>
-    <!-- <div class="min-h-screen"></div> -->
 
 
     <script>
-        // Animation on scroll
+        // Consolidated script: fade-ins, counters (using .count), and guarded carousel
         document.addEventListener('DOMContentLoaded', function () {
             // Fade in elements on scroll
             const fadeElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
@@ -398,58 +446,54 @@
                 });
             };
 
-            // Initial check
+            // Initial check and on scroll
             fadeInOnScroll();
-
-            // Check on scroll
             window.addEventListener('scroll', fadeInOnScroll);
 
-            // Counter animation
-            const counters = document.querySelectorAll('.animate-count');
-            const speed = 200;
+            // Counter animation (works with <span class="count" data-target="...">0</span>)
+            const counters = document.querySelectorAll('.count');
 
-            const animateCounters = function () {
-                counters.forEach(counter => {
-                    const target = parseInt(counter.getAttribute('data-target'));
-                    const count = parseInt(counter.innerText);
-                    const increment = Math.ceil(target / speed);
+            counters.forEach(counter => counter.innerText = '0');
 
-                    if (count < target) {
-                        counter.innerText = count + increment;
-                        setTimeout(animateCounters, 10);
-                    } else {
+            const startCounting = (counter) => {
+                const target = parseInt(counter.getAttribute('data-target')) || 0;
+                if (target <= 0) return;
+                const duration = 1500; // total duration in ms
+                const interval = 25; // ms between updates
+                const steps = Math.ceil(duration / interval);
+                const increment = Math.max(1, Math.floor(target / steps));
+                let current = 0;
+
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
                         counter.innerText = target;
+                        clearInterval(timer);
+                    } else {
+                        counter.innerText = current;
                     }
-                });
+                }, interval);
             };
 
-            // Set data targets and initialize counters to 0
-            document.getElementById('barberCount').setAttribute('data-target', '25');
-            document.getElementById('barberCount').innerText = '0';
+            // Observe the stats section and start counting when it scrolls into view
+            const statsSection = document.getElementById('stats');
+            if (statsSection) {
+                const statsObserver = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            counters.forEach(c => startCounting(c));
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.3 });
 
-            document.getElementById('storiesCount').setAttribute('data-target', '500');
-            document.getElementById('storiesCount').innerText = '0';
+                statsObserver.observe(statsSection);
+            } else {
+                // Fallback: if stats section not found, start counters immediately
+                counters.forEach(c => startCounting(c));
+            }
 
-            document.getElementById('experienceCount').setAttribute('data-target', '15');
-            document.getElementById('experienceCount').innerText = '0';
-
-            document.getElementById('customersCount').setAttribute('data-target', '76');
-            document.getElementById('customersCount').innerText = '0';
-
-            // Start counter animation when stats section is in view
-            const statsSection = document.querySelector('.bg-primary');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateCounters();
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
-
-            observer.observe(statsSection);
-
-            // Carousel functionality
+            // Carousel functionality (guarded so missing elements won't throw)
             const carousel = document.getElementById('carousel');
             const carouselItems = document.querySelectorAll('.carousel-item');
             const prevButton = document.querySelector('.carousel-prev');
@@ -457,24 +501,27 @@
             let currentIndex = 0;
 
             function updateCarousel() {
+                if (!carousel) return;
                 carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
             }
 
-            prevButton.addEventListener('click', () => {
-                currentIndex = (currentIndex > 0) ? currentIndex - 1 : carouselItems.length - 1;
-                updateCarousel();
-            });
+            if (prevButton && nextButton && carousel && carouselItems.length) {
+                prevButton.addEventListener('click', () => {
+                    currentIndex = (currentIndex > 0) ? currentIndex - 1 : carouselItems.length - 1;
+                    updateCarousel();
+                });
 
-            nextButton.addEventListener('click', () => {
-                currentIndex = (currentIndex < carouselItems.length - 1) ? currentIndex + 1 : 0;
-                updateCarousel();
-            });
+                nextButton.addEventListener('click', () => {
+                    currentIndex = (currentIndex < carouselItems.length - 1) ? currentIndex + 1 : 0;
+                    updateCarousel();
+                });
 
-            // Auto-advance carousel
-            setInterval(() => {
-                currentIndex = (currentIndex < carouselItems.length - 1) ? currentIndex + 1 : 0;
-                updateCarousel();
-            }, 5000);
+                // Auto-advance carousel
+                setInterval(() => {
+                    currentIndex = (currentIndex < carouselItems.length - 1) ? currentIndex + 1 : 0;
+                    updateCarousel();
+                },);
+            }
         });
     </script>
 </body>
