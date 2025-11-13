@@ -218,41 +218,41 @@
         <p class="text-red uppercase text-left">trending style</p>
         <p class="text-2xl font-semibold mb-10 w-80 md:w-[25vw]">Crafting Confidence Through
             Precision Cuts</p>
-        <div class="md:flex md:gap-40 justify-center items-center">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="mb-5 relative">
-                <img class="rounded-lg" src="/images/Rectangle 88.png" alt="">
-                <div class="absolute inset-0 py-10 px-10">
+                <img class="rounded-lg w-full h-[400px] object-cover" src="/images/Rectangle 88.png" alt="">
+                <div class="absolute inset-0 py-10 px-10 flex flex-col justify-center">
                     <p class="text-white font-semibold text-xl mb-3">Slick Back</p>
                     <p class="text-white mb-5 text-sm">The Slick Back is a statement of refinement. It involves precise
                         graduation on the sides, maintaining maximum length.</p>
                     <button
-                        class="bg-red text-white py-2 px-5 rounded-lg hover:bg-secondary transition transform hover:scred5">
+                        class="bg-red text-white py-2 px-5 rounded-lg hover:bg-secondary transition transform hover:scale-105 w-fit">
                         Learn More
                     </button>
                 </div>
             </div>
             <div class="mb-5 relative">
-                <img class="rounded-lg" src="/images/Rectangle 89.png" alt="">
-                <div class="absolute inset-0 py-10 px-10">
+                <img class="rounded-lg w-full h-[400px] object-cover" src="/images/Rectangle 89.png" alt="">
+                <div class="absolute inset-0 py-10 px-10 flex flex-col justify-center">
                     <p class="text-white font-semibold text-xl mb-3">Classic Quiff</p>
                     <p class="text-white mb-5 text-sm">The Classic Quiff is an emblem of bold elegance. It features
                         voluminous
                         height at the front, expertly tapered sides, and a smooth, sculpted crown.</p>
                     <button
-                        class="bg-red text-white py-2 px-5 rounded-lg hover:bg-secondary transition transform hover:scale-105">
+                        class="bg-red text-white py-2 px-5 rounded-lg hover:bg-secondary transition transform hover:scale-105 w-fit">
                         Learn More
                     </button>
                 </div>
             </div>
             <div class="mb-5 relative">
-                <img class="rounded-lg" src="/images/Rectangle 90.png" alt="">
-                <div class="absolute inset-0 py-10 px-10">
+                <img class="rounded-lg w-full h-[400px] object-cover" src="/images/Rectangle 90.png" alt="">
+                <div class="absolute inset-0 py-10 px-10 flex flex-col justify-center">
                     <p class="text-white font-semibold text-xl mb-3">Curly Fafe</p>
                     <p class="text-white mb-5 text-sm">The Curly Fade is a celebration of natural texture. It showcases
                         tight,defined curls on top skin-close fade on the sides and back.
                     </p>
                     <button
-                        class="bg-red text-white py-2 px-5 rounded-lg hover:bg-secondary transition transform hover:scale-105">
+                        class="bg-red text-white py-2 px-5 rounded-lg hover:bg-secondary transition transform hover:scale-105 w-fit">
                         Learn More
                     </button>
                 </div>
@@ -416,7 +416,8 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-20 max-w-4xl mx-auto">
                 <!-- Haircuts -->
                 <div class="p-6 rounded-lg border md:w-[30vw]">
-                    <h3 class="font-semibold mb-6 text-center pb-2 bg-red rounded-lg w-[35vw] md:w-[6vw] mx-auto">Haircuts</h3>
+                    <h3 class="font-semibold mb-6 text-center pb-2 bg-red rounded-lg w-[35vw] md:w-[6vw] mx-auto">
+                        Haircuts</h3>
 
                     <ul class="space-y-6">
                         <li>
@@ -506,13 +507,56 @@
         </div>
     </section>
 
+    <!-- Team Section -->
+    <section class="bg-zinc-900 text-white py-16 px-6">
+        <div class="max-w-7xl mx-auto">
+            <!-- Section Header -->
+            <div class="mb-12">
+                <p class="text-red text-sm font-semibold tracking-wider mb-2">THE TEAM</p>
+                <h2 class="text-3xl md:text-4xl font-bold">Our Amazing Barbers</h2>
+            </div>
+
+            <!-- Team Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Barber 1 -->
+                <div class="relative group overflow-hidden rounded-lg">
+                    <img src="/images/Rectangle 96.png" alt="Daniel Cruz" class="w-full h-[400px] object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                        <h3 class="text-2xl font-bold mb-1">Daniel Cruz</h3>
+                        <p class="text-red text-sm font-semibold">Owner</p>
+                    </div>
+                </div>
+
+                <!-- Barber 2 -->
+                <div class="relative group overflow-hidden rounded-lg">
+                    <img src="/images/Rectangle 98.png" alt="Victor Morales" class="w-full h-[400px] object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                        <h3 class="text-2xl font-bold mb-1">Victor Morales</h3>
+                        <p class="text-red text-sm font-semibold">Color Specialist</p>
+                    </div>
+                </div>
+
+                <!-- Barber 3 -->
+                <div class="relative group overflow-hidden rounded-lg">
+                    <img src="/images/Rectangle 99.png" alt="Miles Turner" class="w-full h-[400px] object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                        <h3 class="text-2xl font-bold mb-1">Miles Turner</h3>
+                        <p class="text-red text-sm font-semibold">Barber</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     <footer class="bg-gray-100 py-12 px-10 md:px-20 text-black">
         <div class="max-w-7xl">
             <!-- Main Footer Content -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
                 <!-- Column 1: Company Info -->
                 <div>
-                    <h3 class="text-xl font-semibold mb-6 md:text-left">Grow Your Online Business and Improve Customer
+                    <h3 class="text-xl font-semibold mb-6 md:text-left">Grow Your Online Business and Improve
+                        Customer
                         Retention</h3>
 
                     <div class="space-y-4">
@@ -568,13 +612,16 @@
                 <div class="text-center">
                     <h4 class="text-lg font-semibold mb-6">Services</h4>
                     <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-700 hover:text-orange-500 transition">Web Development</a></li>
-                        <li><a href="#" class="text-gray-700 hover:text-orange-500 transition">Mobile Development</a>
+                        <li><a href="#" class="text-gray-700 hover:text-orange-500 transition">Web Development</a>
+                        </li>
+                        <li><a href="#" class="text-gray-700 hover:text-orange-500 transition">Mobile
+                                Development</a>
                         </li>
                         <li><a href="#" class="text-gray-700 hover:text-orange-500 transition">Cutting Edge</a></li>
                         <li><a href="#" class="text-gray-700 hover:text-orange-500 transition">Quality Assurance
                                 (QA)</a></li>
-                        <li><a href="#" class="text-gray-700 hover:text-orange-500 transition">Cyber Security</a></li>
+                        <li><a href="#" class="text-gray-700 hover:text-orange-500 transition">Cyber Security</a>
+                        </li>
                     </ul>
                 </div>
 
@@ -582,11 +629,14 @@
                 <div class="text-center">
                     <h4 class="text-lg font-semibold mb-6">Product</h4>
                     <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-700 hover:text-orange-500 transition">Transpiration Tracker</a>
+                        <li><a href="#" class="text-gray-700 hover:text-orange-500 transition">Transpiration
+                                Tracker</a>
                         </li>
-                        <li><a href="#" class="text-gray-700 hover:text-orange-500 transition">Gym Managent System</a>
+                        <li><a href="#" class="text-gray-700 hover:text-orange-500 transition">Gym Managent
+                                System</a>
                         </li>
-                        <li><a href="#" class="text-gray-700 hover:text-orange-500 transition">Parcel Delivery App</a>
+                        <li><a href="#" class="text-gray-700 hover:text-orange-500 transition">Parcel Delivery
+                                App</a>
                         </li>
                         <li><a href="#" class="text-gray-700 hover:text-orange-500 transition">School Management
                                 System</a></li>
