@@ -220,7 +220,7 @@
             Precision Cuts</p>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="mb-5 relative">
-                <img class="rounded-lg w-full h-[400px] object-cover" src="/images/Rectangle 88.png" alt="">
+                <img class="rounded-lg w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-110 " src="/images/Rectangle 88.png" alt="">
                 <div class="absolute inset-0 py-10 px-10 flex flex-col justify-center">
                     <p class="text-white font-semibold text-xl mb-3">Slick Back</p>
                     <p class="text-white mb-5 text-sm">The Slick Back is a statement of refinement. It involves precise
@@ -409,11 +409,11 @@
 
     <!-- Pricing Section -->
     <section id="pricing" class="py-20 text-white">
-    <div class="container mx-auto px-4 relative">
-        <img class="w-full md:h-[110vh]" src="/images/Rectangle 84.png" alt="">
-        <div class="absolute inset-0 flex flex-col px-10 py-20">
-            <h2 class="text-center mb-4 fade-in text-red font-semibold">OUR PRICE LIST</h2>
-            <p class="text-3xl font-bold text-center mb-12 fade-in">Best Price For My Customers</p>
+        <div class="container mx-auto relative">
+            <img class="w-full h-[230vh] md:h-[130vh] object-cover" src="/images/Rectangle 84.png" alt="">
+            <div class="absolute inset-0 flex flex-col px-10 py-10 md:py-20">
+                <h2 class="text-center mb-4 fade-in text-red font-semibold">OUR PRICE LIST</h2>
+                <p class="text-3xl font-bold text-center mb-12 fade-in">Best Price For My Customers</p>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-20 max-w-4xl mx-auto">
                     <!-- Haircuts -->
@@ -519,6 +519,8 @@
         </div>
     </section>
 
+    <!-- Testimonials -->
+
     <!-- Team Section -->
     <section class="bg-zinc-900 text-white py-16 px-6">
         <div class="max-w-7xl mx-auto">
@@ -532,7 +534,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Barber 1 -->
                 <div class="relative group overflow-hidden rounded-lg">
-                    <img src="/images/Rectangle 96.png" alt="Daniel Cruz" class="w-full h-[400px] object-cover">
+                    <img src="/images/Rectangle 96.png" alt="Daniel Cruz" class="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-110">
                     <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
                         <h3 class="text-2xl font-bold mb-1">Daniel Cruz</h3>
                         <p class="text-red text-sm font-semibold">Owner</p>
@@ -541,7 +543,7 @@
 
                 <!-- Barber 2 -->
                 <div class="relative group overflow-hidden rounded-lg">
-                    <img src="/images/Rectangle 98.png" alt="Victor Morales" class="w-full h-[400px] object-cover">
+                    <img src="/images/Rectangle 98.png" alt="Victor Morales" class="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-110">
                     <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
                         <h3 class="text-2xl font-bold mb-1">Victor Morales</h3>
                         <p class="text-red text-sm font-semibold">Color Specialist</p>
@@ -550,7 +552,7 @@
 
                 <!-- Barber 3 -->
                 <div class="relative group overflow-hidden rounded-lg">
-                    <img src="/images/Rectangle 99.png" alt="Miles Turner" class="w-full h-[400px] object-cover">
+                    <img src="/images/Rectangle 99.png" alt="Miles Turner" class="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-110">
                     <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
                         <h3 class="text-2xl font-bold mb-1">Miles Turner</h3>
                         <p class="text-red text-sm font-semibold">Barber</p>
@@ -560,6 +562,73 @@
         </div>
     </section>
 
+    <!-- Blog -->
+    <section class="py-12 px-4 md:px-8 lg:px-16">
+        <!-- Blog Header -->
+        <div class="text-center mb-10">
+            <p class="text-red text-sm font-semibold tracking-wider uppercase mb-2">BLOG</p>
+            <h1 class="text-3xl md:text-4xl font-bold text-white">Our Latest Blog</h1>
+        </div>
+
+        <!-- Blog Posts Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+
+            <!-- Blog Post 1 -->
+            <article class="group cursor-pointer bg-gray-800 ">
+                <div class="overflow-hidden rounded-lg mb-4">
+                    <img src="/images/Rectangle 101.png"
+                        alt="Barbers talking"
+                        class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="px-3 py-3">
+                    <h2 class="text-xl md:text-2xl font-title text-white mb-2 leading-tight md:w-[20vw]">
+                        Clipher Chronicles: Navigating the world of Buzzcuts
+                    </h2>
+                    <div class="flex items-center justify-between text-sm text-red">
+                        <span>December 30, 2023</span>
+                        <span class="text-red-500">No Comments</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Blog Post 2 -->
+            <article class="group cursor-pointer  bg-gray-800">
+                <div class="overflow-hidden rounded-lg mb-4">
+                    <img src="/images/Rectangle 102.png"
+                        alt="Barber using hair dryer"
+                        class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110 grayscale">
+                </div>
+                <div class="px-3 py-3">
+                    <h2 class="text-xl md:text-2xl font-title text-white mb-2 leading-tight md:w-[15vw]">
+                        Taming the Mane: A guide to long hair for men
+                    </h2>
+                    <div class="flex items-center justify-between text-sm text-red">
+                        <span>December 30, 2023</span>
+                        <span class="text-red-500">No Comments</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Blog Post 3 -->
+            <article class="group cursor-pointer  bg-gray-800">
+                <div class="overflow-hidden rounded-lg mb-4">
+                    <img src="/images/Rectangle 103.png"
+                        alt="Bearded barber styling client"
+                        class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110 grayscale">
+                </div>
+                <div class="px-3 py-3">
+                    <h2 class="text-xl md:text-2xl font-title text-white mb-2 leading-tight md:w-[18vw]">
+                        Unveiling the Secrets: Hair studio etiquette for clients
+                    </h2>
+                    <div class="flex items-center justify-between text-sm text-red">
+                        <span>December 30, 2023</span>
+                        <span class="text-red-500">No Comments</span>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </section>
 
     <footer class="bg-gray-100 py-12 px-10 md:px-20 text-black">
         <div class="max-w-7xl">
