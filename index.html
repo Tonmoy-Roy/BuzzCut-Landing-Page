@@ -10,6 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <link rel="icon" href="/www.png">
     <script>
         tailwind.config = {
@@ -253,7 +255,8 @@
                 </div>
                 <div class="mb-10">
                     <h2 class="text-red">ABOUT BUZZCUT</h2>
-                    <h3 class="text-3xl md:text-4xl font-bold mb-4 md:w-[30vw] slide-in-right">Crafting Timeless Styles With a Modern
+                    <h3 class="text-3xl md:text-4xl font-bold mb-4 md:w-[30vw] slide-in-right">Crafting Timeless Styles
+                        With a Modern
                         Touch
                     </h3>
                     <p class="md:w-[34vw] mb-10 text-gray-400">Experience the difference of a professional touch. Our
@@ -907,7 +910,40 @@
                         </div>
                         <span class="text-orange-500 font-semibold">Get Estimate</span>
                     </div>
+                    <div class="flex items-center space-x-5">
+                        <!-- Facebook -->
+                        <a href="#" class="text-gray-800 hover:text-orange-500 transition">
+                            <i class="fab fa-facebook text-2xl"></i>
+                        </a>
+
+                        <!-- X (Twitter) -->
+                        <a href="#" class="text-gray-800 hover:text-orange-500 transition">
+                            <i class="fab fa-x-twitter text-2xl"></i>
+                        </a>
+
+                        <!-- YouTube -->
+                        <a href="#" class="text-gray-800 hover:text-orange-500 transition">
+                            <i class="fab fa-youtube text-2xl"></i>
+                        </a>
+
+                        <!-- LinkedIn -->
+                        <a href="#" class="text-gray-800 hover:text-orange-500 transition">
+                            <i class="fab fa-linkedin-in text-2xl"></i>
+                        </a>
+
+                        <!-- Dribbble -->
+                        <a href="#" class="text-gray-800 hover:text-orange-500 transition">
+                            <i class="fab fa-dribbble text-2xl"></i>
+                        </a>
+
+                        <!-- Pinterest -->
+                        <a href="#" class="text-gray-800 hover:text-orange-500 transition">
+                            <i class="fab fa-pinterest-p text-2xl"></i>
+                        </a>
+                    </div>
+
                 </div>
+
 
                 <div class="text-center">
                     <h4 class="text-lg font-semibold mb-6">Services</h4>
@@ -1036,34 +1072,6 @@
                 statsObserver.observe(statsSection);
             } else {
                 counters.forEach(c => startCounting(c));
-            }
-
-            const carousel = document.getElementById('carousel');
-            const carouselItems = document.querySelectorAll('.carousel-item');
-            const prevButton = document.querySelector('.carousel-prev');
-            const nextButton = document.querySelector('.carousel-next');
-            let currentIndex = 0;
-
-            function updateCarousel() {
-                if (!carousel) return;
-                carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-            }
-
-            if (prevButton && nextButton && carousel && carouselItems.length) {
-                prevButton.addEventListener('click', () => {
-                    currentIndex = (currentIndex > 0) ? currentIndex - 1 : carouselItems.length - 1;
-                    updateCarousel();
-                });
-
-                nextButton.addEventListener('click', () => {
-                    currentIndex = (currentIndex < carouselItems.length - 1) ? currentIndex + 1 : 0;
-                    updateCarousel();
-                });
-
-                setInterval(() => {
-                    currentIndex = (currentIndex < carouselItems.length - 1) ? currentIndex + 1 : 0;
-                    updateCarousel();
-                },);
             }
         });
     </script>
