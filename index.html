@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" href="/www.png">
     <script>
         tailwind.config = {
@@ -32,7 +32,6 @@
         body {
             font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
-            /* background-color: #0f0f0f; */
         }
 
         .animate-count {
@@ -76,41 +75,64 @@
             transition: transform 0.5s ease, opacity 0.5s ease;
         }
     </style>
+    <script defer src="https://unpkg.com/alpinejs@3.12.0/dist/cdn.min.js"></script>
 </head>
 
-<body class="bg-gray-50 dark:bg-[#0f0f0f] text-gray-800 dark:text-white font-sans">
-    <!-- Header -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
+<body class="dark:bg-[#1E1E1E] text-white font-sans">
+    <header x-data="{ open: false }" class="bg-[#1E1E1E] shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+
             <div class="flex items-center">
-                <img class="md:h-[8vh] h-10" src="/images/buz.png" alt="">
+                <img class="md:h-[8vh] h-10 w-auto" src="/images/buz.png" alt="BuzzCut Logo">
             </div>
-            <nav class="hidden md:flex ">
-                <div class="mt-1 space-x-8 mr-8">
-                    <a href="#" class="text-primary hover:text-accent transition">Home</a>
-                    <a href="#about" class="text-primary hover:text-accent transition">About Us</a>
-                    <a href="#services" class="text-primary hover:text-accent transition">Services</a>
-                    <a href="#pages" class="text-primary hover:text-accent transition">Pages</a>
-                    <a href="#contact" class="text-primary hover:text-accent transition">Contact Us</a>
+
+            <nav class="hidden md:flex items-center space-x-8">
+                <div class="flex items-center space-x-8 mr-8">
+                    <a href="#" class="hover:text-red transition">Home</a>
+                    <a href="#about" class="hover:text-red transition">About Us</a>
+                    <a href="#services" class="hover:text-red transition">Services</a>
+                    <a href="#pages" class="hover:text-red transition flex items-center">
+                        Pages
+                        <i class="fas fa-chevron-down text-xs ml-1"></i>
+                    </a>
+                    <a href="#contact" class="hover:text-red transition">Contact Us</a>
                 </div>
                 <button
-                    class="bg-red text-white font-semibold py-1 px-2 rounded-lg hover:bg-secondary transition transform hover:scale-105">
+                    class="bg-red text-white font-semibold py-2 px-4 rounded-lg hover:bg-secondary transition transform hover:scale-105">
                     Make Appointment
                 </button>
             </nav>
-            <button class="md:hidden text-primary">
+
+            <button @click="open = !open" class="md:hidden text-white focus:outline-none">
                 <i class="fas fa-bars text-xl"></i>
             </button>
+        </div>
+
+        <div x-show="open" @click.away="open = false"
+            class="md:hidden absolute top-full left-0 w-full bg-[#1E1E1E] shadow-lg z-40 transition-all duration-300"
+            :class="{ 'translate-y-0 opacity-100': open, '-translate-y-4 opacity-0 pointer-events-none': !open }">
+            <nav class="px-6 py-4 space-y-4">
+                <a href="#" class="block hover:text-red transition py-2">Home</a>
+                <a href="#about" class="block hover:text-red transition py-2">About Us</a>
+                <a href="#services" class="block hover:text-red transition py-2">Services</a>
+                <a href="#pages" class="block hover:text-red transition py-2 flex items-center justify-between">
+                    Pages
+                    <i class="fas fa-chevron-down text-xs"></i>
+                </a>
+                <a href="#contact" class="block hover:text-red transition py-2">Contact Us</a>
+                <button
+                    class="w-full bg-red text-white font-semibold py-2 px-4 rounded-lg hover:bg-secondary transition mt-4">
+                    Make Appointment
+                </button>
+            </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="bg-gradient-to-r from-primary to-secondary text-white md:h-[85vh]">
         <div class="relative">
-            <!-- Background image -->
             <img class="w-full h-[60vh] md:h-[85vh] object-cover" src="/images/Rectangle 79.png" alt="Background Image">
 
-            <!-- Text overlay -->
             <div class="absolute inset-0 flex flex-col px-10 py-20 md:py-40">
                 <h2 class="text-3xl md:text-6xl font-semibold text-white slide-in-left">Where Style</h2>
                 <h2 class="text-3xl md:text-6xl font-semibold text-red-500 slide-in-left text-red">Meets Craftmanship
@@ -135,7 +157,7 @@
         <div class="mx-auto px-4">
             <h3 class="text-center mb-3 fade-in text-red">QUALITY COLLABORATING BRANDS</h3>
             <div class="mb-12 flex justify-center">
-                <p class="text-2xl font-semibold md:w-[27vw] text-center">Provide the best
+                <p class="text-3xl md:text-4xl font-bold md:w-[40vw] text-center">Provide the best
                     service by using top brands</p>
             </div>
             <div class="grid grid-cols-2 md:flex justify-center items-center gap-8 md:gap-16">
@@ -174,9 +196,11 @@
                 </div>
                 <div class="mb-10">
                     <h2 class="text-red">ABOUT BUZZCUT</h2>
-                    <h3 class="text-2xl font-semibold mb-4 md:w-[20vw]">Crafting Timeless Styles With a Modern Touch
+                    <h3 class="text-3xl md:text-4xl font-bold mb-4 md:w-[30vw]">Crafting Timeless Styles With a Modern
+                        Touch
                     </h3>
-                    <p class="md:w-[34vw] mb-10">Experience the difference of a professional touch. Our barbers blend
+                    <p class="md:w-[34vw] mb-10 text-gray-400">Experience the difference of a professional touch. Our
+                        barbers blend
                         classic grooming traditions with contemporary style to ensure every visit leaves you looking and
                         feeling your absolute best.</p>
                     <div class="space-y-4">
@@ -184,7 +208,7 @@
                             <img class="mr-5 " src="/images/noto-v1_man-pilot.png" alt="">
                             <div>
                                 <h4 class="font-bold">Expert Craftmanship</h4>
-                                <p class="text-gray-600 md:w-[30vw]">Our barbers are seasoned masters of the trade. We
+                                <p class="text-gray-400 md:w-[30vw]">Our barbers are seasoned masters of the trade. We
                                     combine decades of training with the latest techniques in cutting and styling.</p>
                             </div>
                         </div>
@@ -192,16 +216,16 @@
                             <img class="mr-5" src="/images/hugeicons_office-chair.png" alt="">
                             <div>
                                 <h4 class="font-bold">Personalized Service</h4>
-                                <p class="text-gray-600 md:w-[30vw]">We treat every appointment as a one-on-one
+                                <p class="text-gray-400 md:w-[30vw]">We treat every appointment as a one-on-one
                                     consultation. Your barber takes the time to listen to your needs, assess your hair
                                     and face shape.</p>
                             </div>
                         </div>
                         <div class="flex items-start">
-                            <img class="mr-5" src="/images/game-icons_saloon.png" alt="">
+                            <img class="mr-8" src="/images/game-icons_saloon.png" alt="">
                             <div>
                                 <h4 class="font-bold">Exceptional Ambiance</h4>
-                                <p class="text-gray-600 md:w-[30vw]">Step into a space designed for relaxation and
+                                <p class="text-gray-400 md:w-[30vw]">Step into a space designed for relaxation and
                                     refinement. Enjoy a comfortable, stylish environment where you can unwind, grab a
                                     drink.
                                 </p>
@@ -216,7 +240,7 @@
     <!-- trending style -->
     <section class="px-5 md:px-20 mb-10">
         <p class="text-red uppercase text-left">trending style</p>
-        <p class="text-2xl font-semibold mb-10 w-80 md:w-[25vw]">Crafting Confidence Through
+        <p class="text-3xl md:text-4xl font-bold mb-10 w-80 md:w-[35vw]">Crafting Confidence Through
             Precision Cuts</p>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="mb-5 relative">
@@ -262,12 +286,10 @@
     </section>
     <!-- our benifits -->
     <section id="stats" class="flex flex-col md:flex-row items-center justify-between md:px-20 py-16 px-10">
-        <!-- Left Side Image -->
         <div class="md:w-1/2 flex justify-center mb-10 md:mb-0">
             <img src="/images/unnamed (3) 1.png" alt="Barber" class="rounded-lg max-w-sm md:max-w-md" />
         </div>
 
-        <!-- Right Side Content -->
         <div class="md:w-1/2 space-y-6">
             <p class="text-red font-semibold uppercase">Our Benefits</p>
             <h2 class="text-3xl md:text-4xl font-bold">
@@ -280,7 +302,6 @@
                 in a relaxing, sophisticated environment.
             </p>
 
-            <!-- Stats -->
             <div class="grid grid-cols-2 gap-6 pt-4">
                 <div class="border border-gray-600 p-5 rounded-lg text-center">
                     <p class="text-4xl font-bold text-white"><span class="count" data-target="25">0</span><span
@@ -312,7 +333,8 @@
             <img class="w-full object-cover  h-[60vh] md:h-[85vh]" src="/images/Rectangle 93.png" alt="">
             <div class="absolute inset-0 flex flex-col justify-center items-center">
                 <h2 class="mb-6 text-red font-semibold">RELAX, REFRESH, REJUVENATE</h2>
-                <p class="text-3xl md:text-4xl mb-8 fade-in font-bold md:w-[39vw]">Ready For a Fresh Look? Book Your
+                <p class="text-white text-3xl md:text-4xl mb-8 fade-in font-bold md:w-[39vw]">Ready For a Fresh Look?
+                    Book Your
                     Appointment Now!</p>
                 <p class="md:w-[40vw] text-gray-400 mb-8">The path to your perfect style is just a click away. Book your
                     session now to enjoy the full "Relax, Refresh, Rejuvenate" experience.</p>
@@ -328,11 +350,10 @@
     <section id="services" class="py-20 px-5 md:px-20">
         <div class="container mx-auto px-4">
             <h2 class="mb-4 text-red font-semibold">WHAT WE OFFER</h2>
-            <p class="text-3xl font-bold text-gray-600 mb-12 fade-in text-white md:w-[22vw]">Tailored Excellence For
+            <p class="text-3xl font-bold mb-12 fade-in text-white md:w-[22vw]">Tailored Excellence For
                 Every Style</p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-white text-left">
-                <!-- Service 1 -->
                 <div class="p-6 rounded-lg transition fade-in border">
                     <div class="mb-4">
                         <img src="/images/openmoji_man-medium-dark-skin-tone-beard.png" alt="">
@@ -345,7 +366,6 @@
                     </div>
                 </div>
 
-                <!-- Service 2 -->
                 <div class=" p-6 rounded-lg transition fade-in border">
                     <div class=" mb-4">
                         <img src="/images/game-icons_shinto-shrine-mirror.png" alt="">
@@ -358,7 +378,6 @@
                     </div>
                 </div>
 
-                <!-- Service 3 -->
                 <div class="p-6 rounded-lg transition fade-in border">
                     <div class="flex mb-4">
                         <img src="/images/icon-park-outline_hair-brush.png" alt="">
@@ -417,7 +436,6 @@
                 <p class="text-3xl font-bold text-center mb-12 fade-in">Best Price For My Customers</p>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-20 max-w-4xl mx-auto">
-                    <!-- Haircuts -->
                     <div class="p-6 rounded-lg border md:w-[30vw]">
                         <h3 class="font-semibold mb-6 text-center pb-2 bg-red rounded-lg w-[35vw] md:w-[6vw] mx-auto">
                             Haircuts</h3>
@@ -466,7 +484,6 @@
                         </ul>
                     </div>
 
-                    <!-- Beard Services -->
                     <div class="p-6 rounded-lg border md:w-[29vw]">
                         <h3 class="font-semibold mb-6 text-center pb-2 bg-red rounded-lg w-[35vw] md:w-[9vw] mx-auto">
                             Beard
@@ -549,15 +566,13 @@
                     </div>
                 </div>
 
-                <!-- Testimonial 2 - LARGER -->
+                <!-- Testimonial 2 -->
                 <div class="bg-zinc-800 rounded-lg p-10 relative md:scale-110 md:shadow-2xl z-10 mb-10">
-                    <!-- Profile Image -->
                     <div class="absolute -top-10 left-1/2 transform -translate-x-1/2">
                         <img src="/images/Ellipse 26.png" alt="Ryan Chen"
                             class="w-24 h-24 rounded-full object-cover border-4 border-zinc-900">
                     </div>
 
-                    <!-- Content -->
                     <div class="mt-3 text-center">
                         <h3 class="text-xl font-bold mb-6">Ryan Chen</h3>
 
@@ -570,7 +585,6 @@
                                 Fantastic. It's The Best Part Of My Month.It Lasts Weeks Longer Than Cuts I've Gotten.
                             </p>
 
-                            <!-- Closing Quote -->
                             <span class="text-red text-5xl font-serif absolute -bottom-10 -right-7">"</span>
                         </div>
                     </div>
@@ -578,18 +592,15 @@
 
                 <!-- Testimonial 3 -->
                 <div class="bg-zinc-800 rounded-lg p-8 relative">
-                    <!-- Profile Image -->
                     <div class="absolute -top-12 left-1/2 transform -translate-x-1/2">
                         <img src="/images/Ellipse 27.png" alt="Gabriel Soto"
                             class="w-24 h-24 rounded-full object-cover border-4 border-zinc-900">
                     </div>
 
-                    <!-- Content -->
                     <div class="mt-3 text-center">
                         <h3 class="text-xl font-bold mb-6">Gabriel Soto</h3>
 
                         <div class="relative">
-                            <!-- Opening Quote -->
                             <span class="text-red text-5xl font-serif absolute -top-4 -left-2">"</span>
 
                             <p class="text-gray-300 text-sm leading-relaxed mb-4 px-4">
@@ -597,7 +608,6 @@
                                 The Advice They Give On Products Is Always Spot-On.
                             </p>
 
-                            <!-- Closing Quote -->
                             <span class="text-red text-5xl font-serif absolute -bottom-12 -right-2">"</span>
                         </div>
                     </div>
@@ -609,13 +619,11 @@
     <!-- Team Section -->
     <section class="bg-zinc-900 text-white py-16 px-6">
         <div class="max-w-7xl mx-auto">
-            <!-- Section Header -->
             <div class="mb-12">
                 <p class="text-red text-sm font-semibold tracking-wider mb-2">THE TEAM</p>
                 <h2 class="text-3xl md:text-4xl font-bold">Our Amazing Barbers</h2>
             </div>
 
-            <!-- Team Grid -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Barber 1 -->
                 <div class="relative group overflow-hidden rounded-lg">
@@ -652,16 +660,13 @@
 
     <!-- Blog -->
     <section class="py-12 px-4 md:px-8 lg:px-16">
-        <!-- Blog Header -->
         <div class="text-center mb-10">
             <p class="text-red text-sm font-semibold tracking-wider uppercase mb-2">BLOG</p>
             <h1 class="text-3xl md:text-4xl font-bold text-white">Our Latest Blog</h1>
         </div>
 
-        <!-- Blog Posts Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
 
-            <!-- Blog Post 1 -->
             <article class="group cursor-pointer bg-gray-800 ">
                 <div class="overflow-hidden rounded-lg mb-4">
                     <img src="/images/Rectangle 101.png" alt="Barbers talking"
@@ -678,7 +683,6 @@
                 </div>
             </article>
 
-            <!-- Blog Post 2 -->
             <article class="group cursor-pointer  bg-gray-800">
                 <div class="overflow-hidden rounded-lg mb-4">
                     <img src="/images/Rectangle 102.png" alt="Barber using hair dryer"
@@ -695,7 +699,6 @@
                 </div>
             </article>
 
-            <!-- Blog Post 3 -->
             <article class="group cursor-pointer  bg-gray-800">
                 <div class="overflow-hidden rounded-lg mb-4">
                     <img src="/images/Rectangle 103.png" alt="Bearded barber styling client"
@@ -715,66 +718,140 @@
         </div>
     </section>
 
-    <footer class="bg-gray-100 py-12 px-10 md:px-20 text-black">
-        <div class="max-w-7xl">
-            <!-- Main Footer Content -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-                <!-- Column 1: Company Info -->
+    <footer class="bg-zinc-900 text-white py-16 px-6 relative overflow-hidden">
+        <img src="/images/Rectangle 107.png" alt="" class="absolute inset-0 w-full h-full object-cover">
+
+        <div class="bg-black/70 backdrop-blur-sm"></div>
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="mb-8">
+                <img src="/images/buz.png" alt="BuzzCut" class="h-16 mb-6 ">
+                <p class=" text-sm max-w-2xl leading-relaxed md:w-[41vw] px-5">
+                    Dedicated To The Art Of Classic Grooming And Modern Style. We Are Committed To Providing Every
+                    Client With Impeccable Precision, Superior Service, And An Atmosphere Designed For Relaxation And
+                    Refinement.
+                </p>
+            </div>
+
+            <div class="flex gap-4 mb-12 px-5">
+                <a href="#"
+                    class="bg-orange-500 hover:bg-orange-500 w-12 h-12 rounded-full flex items-center justify-center transition">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    </svg>
+                </a>
+                <a href="#"
+                    class="bg-orange-500 hover:bg-orange-500 w-12 h-12 rounded-full flex items-center justify-center transition">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                    </svg>
+                </a>
+                <a href="#"
+                    class="bg-orange-500 hover:bg-orange-500 w-12 h-12 rounded-full flex items-center justify-center transition">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                    </svg>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-5">
                 <div>
-                    <h3 class="text-xl font-semibold mb-6 md:text-left">Grow Your Online Business and Improve
+                    <h3 class="text-xl font-bold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-orange-500 transition flex items-center gap-2">
+                                <span class="text-orange-500">›</span> Home
+                            </a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-orange-500 transition flex items-center gap-2">
+                                <span class="text-orange-500">›</span> About Us
+                            </a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-orange-500 transition flex items-center gap-2">
+                                <span class="text-orange-500">›</span> Services
+                            </a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-orange-500 transition flex items-center gap-2">
+                                <span class="text-orange-500">›</span> Blog
+                            </a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-orange-500 transition flex items-center gap-2">
+                                <span class="text-orange-500">›</span> Pricing Plan
+                            </a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Our Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#"
+                                class="text-gray-400 hover:text-orange-500-600 transition flex items-center gap-2">
+                                <span class="text-orange-500">›</span> Precision Haircuts
+                            </a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-orange-500 transition flex items-center gap-2">
+                                <span class="text-orange-500">›</span> Modern Styling
+                            </a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-orange-500 transition flex items-center gap-2">
+                                <span class="text-orange-500">›</span> Specialized Grooming
+                            </a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-orange-500 transition flex items-center gap-2">
+                                <span class="text-orange-500">›</span> Classic Barbering
+                            </a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-orange-500 transition flex items-center gap-2">
+                                <span class="text-orange-500">›</span> Color Expertise
+                            </a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-orange-500 transition flex items-center gap-2">
+                                <span class="text-orange-500">›</span> Luxury Treatments
+                            </a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Subscribe Our Newsletter</h3>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                        Don't Miss Out On The Latest Trends And Exclusive Offers! Subscribe Now To Get Grooming Tips,
+                        New Product Announcements, And VIP Access To Special Pricing And Events.
+                    </p>
+                    <form class="space-y-4">
+                        <input type="email" placeholder="Email"
+                            class="w-full bg-transparent border-b border-gray-600 py-2 text-gray-300 placeholder-gray-500 focus:outline-none focus:border-red-600 transition">
+                        <button type="submit"
+                            class="w-full bg-orange-500 hover:bg-secondary text-white font-semibold py-3 rounded-lg transition transform hover:scale-105">
+                            Subscribe Now
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <footer id="contact" class="bg-gray-100 py-12 px-10 md:px-20 text-black">
+        <div class="max-w-7xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold mb-6 md:text-left md:w-[25vw]">Grow Your Online Business and
+                        Improve
                         Customer
                         Retention</h3>
-
-                    <div class="space-y-4">
-                        <!-- Phone -->
-                        <div class="flex items-center gap-3">
-                            <div class="bg-orange-500 rounded-full p-2 w-10 h-10 text-center">
-                                <i class="fas fa-phone text-white"></i>
-                            </div>
-                            <span class="text-gray-800">+880 1537-570379</span>
+                    <div class="flex items-center gap-3">
+                        <div class="bg-orange-500 rounded-full p-2 w-10 h-10 text-center">
+                            <i class="fas fa-phone text-white"></i>
                         </div>
-
-                        <!-- Address -->
-                        <div class="flex items-center gap-3">
-                            <div class="bg-orange-500 rounded-full p-2 w-10 h-10 mr-2 text-center">
-                                <i class="fas fa-map-marker-alt text-white"></i>
-                            </div>
-                            <span class="text-gray-800 text-left">House D/36, Block E, Lalmatia,Dhaka-1207</span>
-                        </div>
-
-                        <!-- Get Estimate -->
-                        <div class="flex items-center gap-3">
-                            <div class="bg-orange-500 rounded-full p-2 w-10 h-10 mr-1 text-center">
-                                <i class="fas fa-handshake text-white"></i>
-                            </div>
-                            <span class="text-orange-500 font-semibold">Get Estimate</span>
-                        </div>
+                        <span class="text-gray-800">+880 1537-570379</span>
                     </div>
 
-                    <!-- Social Icons -->
-                    <div class="flex gap-4 mt-8 items-center">
-                        <a href="#" class="text-gray-800 hover:text-orange-500 transition">
-                            <i class="fab fa-facebook text-2xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-800 hover:text-orange-500 transition">
-                            <i class="fab fa-x-twitter text-2xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-800 hover:text-orange-500 transition">
-                            <i class="fab fa-youtube text-2xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-800 hover:text-orange-500 transition">
-                            <i class="fab fa-linkedin text-2xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-800 hover:text-orange-500 transition">
-                            <i class="fab fa-dribbble text-2xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-800 hover:text-orange-500 transition">
-                            <i class="fab fa-pinterest text-2xl"></i>
-                        </a>
+                    <div class="flex items-center gap-3">
+                        <div class="bg-orange-500 rounded-full p-2 w-12 h-10 mr-2 text-center">
+                            <i class="fas fa-map-marker-alt text-white"></i>
+                        </div>
+                        <span class="text-gray-800 text-left">House D/36, Block E, Lalmatia,Dhaka-1207</span>
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                        <div class="bg-orange-500 rounded-full p-2 w-10 h-10 mr-1 text-center">
+                            <i class="fas fa-handshake text-white"></i>
+                        </div>
+                        <span class="text-orange-500 font-semibold">Get Estimate</span>
                     </div>
                 </div>
 
-                <!-- Column 2: Services -->
                 <div class="text-center">
                     <h4 class="text-lg font-semibold mb-6">Services</h4>
                     <ul class="space-y-3">
@@ -791,7 +868,6 @@
                     </ul>
                 </div>
 
-                <!-- Column 3: Product -->
                 <div class="text-center">
                     <h4 class="text-lg font-semibold mb-6">Product</h4>
                     <ul class="space-y-3">
@@ -813,7 +889,6 @@
                     </ul>
                 </div>
 
-                <!-- Column 4: Company -->
                 <div class="text-center">
                     <h4 class="text-lg font-semibold mb-6">Company</h4>
                     <ul class="space-y-3">
@@ -826,7 +901,6 @@
                 </div>
             </div>
 
-            <!-- Bottom Footer -->
             <div class="border-t border-gray-300 pt-6">
                 <div class="flex flex-col md:flex-row justify-between items-center gap-4">
                     <p class="text-gray-700">© 2025 DeshIT-BD.ltd</p>
@@ -850,9 +924,7 @@
 
 
     <script>
-        // Consolidated script: fade-ins, counters (using .count), and guarded carousel
         document.addEventListener('DOMContentLoaded', function () {
-            // Fade in elements on scroll
             const fadeElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
 
             const fadeInOnScroll = function () {
@@ -866,11 +938,9 @@
                 });
             };
 
-            // Initial check and on scroll
             fadeInOnScroll();
             window.addEventListener('scroll', fadeInOnScroll);
 
-            // Counter animation (works with <span class="count" data-target="...">0</span>)
             const counters = document.querySelectorAll('.count');
 
             counters.forEach(counter => counter.innerText = '0');
@@ -878,8 +948,8 @@
             const startCounting = (counter) => {
                 const target = parseInt(counter.getAttribute('data-target')) || 0;
                 if (target <= 0) return;
-                const duration = 1500; // total duration in ms
-                const interval = 25; // ms between updates
+                const duration = 1500;
+                const interval = 25;
                 const steps = Math.ceil(duration / interval);
                 const increment = Math.max(1, Math.floor(target / steps));
                 let current = 0;
@@ -895,7 +965,6 @@
                 }, interval);
             };
 
-            // Observe the stats section and start counting when it scrolls into view
             const statsSection = document.getElementById('stats');
             if (statsSection) {
                 const statsObserver = new IntersectionObserver((entries, obs) => {
@@ -909,11 +978,9 @@
 
                 statsObserver.observe(statsSection);
             } else {
-                // Fallback: if stats section not found, start counters immediately
                 counters.forEach(c => startCounting(c));
             }
 
-            // Carousel functionality (guarded so missing elements won't throw)
             const carousel = document.getElementById('carousel');
             const carouselItems = document.querySelectorAll('.carousel-item');
             const prevButton = document.querySelector('.carousel-prev');
@@ -936,7 +1003,6 @@
                     updateCarousel();
                 });
 
-                // Auto-advance carousel
                 setInterval(() => {
                     currentIndex = (currentIndex < carouselItems.length - 1) ? currentIndex + 1 : 0;
                     updateCarousel();
