@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -73,6 +74,20 @@
 
         .carousel-item {
             transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .marquee-container {
+            animation: marquee 15s linear infinite;
         }
     </style>
     <script defer src="https://unpkg.com/alpinejs@3.12.0/dist/cdn.min.js"></script>
@@ -155,29 +170,71 @@
     <!-- Brands Section -->
     <section class="py-12">
         <div class="mx-auto px-4">
-            <h3 class="text-center mb-3 fade-in text-red">QUALITY COLLABORATING BRANDS</h3>
+            <h3 class="text-center mb-3 text-red">QUALITY COLLABORATING BRANDS</h3>
             <div class="mb-12 flex justify-center">
-                <p class="text-3xl md:text-4xl font-bold md:w-[40vw] text-center">Provide the best
+                <p class="text-3xl md:text-4xl font-bold md:w-[40vw] text-center fade-in">Provide the best
                     service by using top brands</p>
             </div>
-            <div class="grid grid-cols-2 md:flex justify-center items-center gap-8 md:gap-16">
-                <div>
-                    <img src="/images/bull.png" alt="">
-                </div>
-                <div>
-                    <img src="/images/browth.png" alt="">
-                </div>
-                <div>
-                    <img src="/images/brant.png" alt="">
-                </div>
-                <div>
-                    <img src="/images/bright.png" alt="">
-                </div>
-                <div>
-                    <img src="/images/avin.png" alt="">
-                </div>
-                <div>
-                    <img src="/images/balatto.png" alt="">
+            <div class="overflow-hidden">
+                <div class="marquee-container flex gap-8 md:gap-16 items-center">
+                    <!-- First set of images -->
+                    <div class="marquee-content flex gap-8 md:gap-16 items-center">
+                        <div class="flex-shrink-0">
+                            <img src="/images/bull.png" alt="">
+                        </div>
+                        <div class="flex-shrink-0">
+                            <img src="/images/browth.png" alt="">
+                        </div>
+                        <div class="flex-shrink-0">
+                            <img src="/images/brant.png" alt="">
+                        </div>
+                        <div class="flex-shrink-0">
+                            <img src="/images/bright.png" alt="">
+                        </div>
+                        <div class="flex-shrink-0">
+                            <img src="/images/avin.png" alt="">
+                        </div>
+                        <div class="flex-shrink-0">
+                            <img src="/images/balatto.png" alt="">
+                        </div>
+                        <div class="flex-shrink-0">
+                            <img src="/images/bull.png" alt="">
+                        </div>
+                        <div class="flex-shrink-0">
+                            <img src="/images/browth.png" alt="">
+                        </div>
+                        <div class="flex-shrink-0">
+                            <img src="/images/brant.png" alt="">
+                        </div>
+                        <div class="flex-shrink-0">
+                            <img src="/images/bright.png" alt="">
+                        </div>
+                        <div class="flex-shrink-0">
+                            <img src="/images/avin.png" alt="">
+                        </div>
+                        <div class="flex-shrink-0">
+                            <img src="/images/balatto.png" alt="">
+                        </div>
+                        <div class="flex-shrink-0">
+                            <img src="/images/bull.png" alt="">
+                        </div>
+                        <div class="flex-shrink-0">
+                            <img src="/images/browth.png" alt="">
+                        </div>
+                        <div class="flex-shrink-0">
+                            <img src="/images/brant.png" alt="">
+                        </div>
+                        <div class="flex-shrink-0">
+                            <img src="/images/bright.png" alt="">
+                        </div>
+                        <div class="flex-shrink-0">
+                            <img src="/images/avin.png" alt="">
+                        </div>
+                        <div class="flex-shrink-0">
+                            <img src="/images/balatto.png" alt="">
+                        </div>
+                    </div>
+                    <!-- Duplicate set for seamless loop -->
                 </div>
             </div>
         </div>
@@ -196,7 +253,7 @@
                 </div>
                 <div class="mb-10">
                     <h2 class="text-red">ABOUT BUZZCUT</h2>
-                    <h3 class="text-3xl md:text-4xl font-bold mb-4 md:w-[30vw]">Crafting Timeless Styles With a Modern
+                    <h3 class="text-3xl md:text-4xl font-bold mb-4 md:w-[30vw] slide-in-right">Crafting Timeless Styles With a Modern
                         Touch
                     </h3>
                     <p class="md:w-[34vw] mb-10 text-gray-400">Experience the difference of a professional touch. Our
@@ -240,7 +297,7 @@
     <!-- trending style -->
     <section class="px-5 md:px-20 mb-10">
         <p class="text-red uppercase text-left">trending style</p>
-        <p class="text-3xl md:text-4xl font-bold mb-10 w-80 md:w-[35vw]">Crafting Confidence Through
+        <p class="text-3xl md:text-4xl font-bold mb-10 w-80 md:w-[35vw] slide-in-left">Crafting Confidence Through
             Precision Cuts</p>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="mb-5 relative">
@@ -292,7 +349,7 @@
 
         <div class="md:w-1/2 space-y-6">
             <p class="text-red font-semibold uppercase">Our Benefits</p>
-            <h2 class="text-3xl md:text-4xl font-bold">
+            <h2 class="text-3xl md:text-4xl font-bold slide-in-right">
                 Professional Barbercrop & <br />
                 Hair Studio For Man Only
             </h2>
@@ -350,11 +407,11 @@
     <section id="services" class="py-20 px-5 md:px-20">
         <div class="container mx-auto px-4">
             <h2 class="mb-4 text-red font-semibold">WHAT WE OFFER</h2>
-            <p class="text-3xl font-bold mb-12 fade-in text-white md:w-[22vw]">Tailored Excellence For
+            <p class="text-3xl font-bold mb-12 text-white md:w-[22vw] slide-in-left">Tailored Excellence For
                 Every Style</p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-white text-left">
-                <div class="p-6 rounded-lg transition fade-in border">
+                <div class="p-6 rounded-lg border">
                     <div class="mb-4">
                         <img src="/images/openmoji_man-medium-dark-skin-tone-beard.png" alt="">
                     </div>
@@ -366,7 +423,7 @@
                     </div>
                 </div>
 
-                <div class=" p-6 rounded-lg transition fade-in border">
+                <div class=" p-6 rounded-lg border">
                     <div class=" mb-4">
                         <img src="/images/game-icons_shinto-shrine-mirror.png" alt="">
                     </div>
@@ -378,7 +435,7 @@
                     </div>
                 </div>
 
-                <div class="p-6 rounded-lg transition fade-in border">
+                <div class="p-6 rounded-lg border">
                     <div class="flex mb-4">
                         <img src="/images/icon-park-outline_hair-brush.png" alt="">
                         <img src="/images/streamline-ultimate_hair-dress-round-brush-1-bold.png" alt="">
@@ -390,7 +447,7 @@
                         <a href="#" class="text-red font-bold hover:underline">Learn More</a>
                     </div>
                 </div>
-                <div class="p-6 rounded-lg transition fade-in border">
+                <div class="p-6 rounded-lg border">
                     <div class=" mb-4">
                         <img src="/images/radix-icons_scissors.png" alt="">
                     </div>
@@ -401,7 +458,7 @@
                         <a href="#" class="text-red font-bold hover:underline">Learn More</a>
                     </div>
                 </div>
-                <div class="p-6 rounded-lg transition fade-in border">
+                <div class="p-6 rounded-lg border">
                     <div class=" mb-4">
                         <img src="/images/fluent-emoji-high-contrast_man-beard.png" alt="">
                     </div>
@@ -412,7 +469,7 @@
                         <a href="#" class="text-red font-bold hover:underline">Learn More</a>
                     </div>
                 </div>
-                <div class="p-6 rounded-lg transition fade-in border">
+                <div class="p-6 rounded-lg border">
                     <div class=" mb-4">
                         <img src="/images/heroicons_home-modern-solid.png" alt="">
                     </div>
@@ -432,7 +489,7 @@
         <div class="container mx-auto relative">
             <img class="w-full h-[230vh] md:h-[133vh] object-cover" src="/images/Rectangle 84.png" alt="">
             <div class="absolute inset-0 flex flex-col px-10 py-10 md:py-20">
-                <h2 class="text-center mb-4 fade-in text-red font-semibold">OUR PRICE LIST</h2>
+                <h2 class="text-center mb-4 text-red font-semibold">OUR PRICE LIST</h2>
                 <p class="text-3xl font-bold text-center mb-12 fade-in">Best Price For My Customers</p>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-20 max-w-4xl mx-auto">
@@ -621,7 +678,7 @@
         <div class="max-w-7xl mx-auto">
             <div class="mb-12">
                 <p class="text-red text-sm font-semibold tracking-wider mb-2">THE TEAM</p>
-                <h2 class="text-3xl md:text-4xl font-bold">Our Amazing Barbers</h2>
+                <h2 class="text-3xl md:text-4xl font-bold slide-in-left">Our Amazing Barbers</h2>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -662,7 +719,7 @@
     <section class="py-12 px-4 md:px-8 lg:px-16">
         <div class="text-center mb-10">
             <p class="text-red text-sm font-semibold tracking-wider uppercase mb-2">BLOG</p>
-            <h1 class="text-3xl md:text-4xl font-bold text-white">Our Latest Blog</h1>
+            <h1 class="text-3xl md:text-4xl font-bold text-white fade-in">Our Latest Blog</h1>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
@@ -948,7 +1005,7 @@
             const startCounting = (counter) => {
                 const target = parseInt(counter.getAttribute('data-target')) || 0;
                 if (target <= 0) return;
-                const duration = 1500;
+                const duration = 3000;
                 const interval = 25;
                 const steps = Math.ceil(duration / interval);
                 const increment = Math.max(1, Math.floor(target / steps));
